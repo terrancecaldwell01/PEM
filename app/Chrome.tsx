@@ -1,6 +1,6 @@
 import Fonts from "@/components/kit/Fonts";
 import PemNav from "./PemNav";
-import { BASE, IMG, CATEGORIES, PEM, mailto } from "./data";
+import { BASE, IMG, SHOWN, PEM, mailto } from "./data";
 
 export function Header({ active }: { active?: string }) {
   return (
@@ -18,7 +18,7 @@ export function Header({ active }: { active?: string }) {
       />
       <nav className="pem-rail" aria-label="Categories">
         <div className="pem-rail-in">
-          {CATEGORIES.map((c) => (
+          {SHOWN.map((c) => (
             <a key={c.slug} href={`${BASE}/${c.slug}`} className={c.slug === active ? "is-on" : ""} aria-current={c.slug === active ? "page" : undefined}>
               {c.name}
             </a>
@@ -30,7 +30,6 @@ export function Header({ active }: { active?: string }) {
 }
 
 export function Footer() {
-  const groups = ["Ovens", "Kitchen", "Supplies", "Deals"] as const;
   return (
     <footer className="pem-foot">
       <div className="pem-wrap pem-foot-in">
@@ -38,12 +37,10 @@ export function Footer() {
           <img src={`${IMG}/peel.png`} alt="Pizza Equipment Mart" width={379} height={600} />
           <p>{PEM.tagline}</p>
         </div>
-        {groups.map((g) => (
-          <div key={g} className="pem-foot-col">
-            <h4>{g}</h4>
-            {CATEGORIES.filter((c) => c.group === g).map((c) => <a key={c.slug} href={`${BASE}/${c.slug}`}>{c.name}</a>)}
-          </div>
-        ))}
+        <div className="pem-foot-col">
+          <h4>Shop</h4>
+          {SHOWN.map((c) => <a key={c.slug} href={`${BASE}/${c.slug}`}>{c.name}</a>)}
+        </div>
         <div className="pem-foot-col">
           <h4>Sell on PEM</h4>
           <a href={`${BASE}/list-your-company`}>List your company</a>

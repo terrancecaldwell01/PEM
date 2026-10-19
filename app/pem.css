@@ -207,7 +207,7 @@
 
 /* footer */
 .pem-foot { background: var(--pem-ink); color: var(--pem-bone); padding: 80px 0 32px; }
-.pem-foot-in { display: grid; grid-template-columns: 1.3fr repeat(5, 1fr); gap: 32px; }
+.pem-foot-in { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 48px; }
 .pem-foot-brand img { width: 86px; filter: invert(1); }
 .pem-foot-brand p { margin-top: 18px; font: 400 1.3rem/1.05 "Anton", Impact, sans-serif; text-transform: uppercase; max-width: 10em; }
 .pem-foot-col { display: grid; align-content: start; gap: 10px; min-width: 0; }

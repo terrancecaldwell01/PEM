@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Header, Footer, ListBand } from "./Chrome";
 import OvenStack from "./OvenStack";
-import { BASE, IMG, CATEGORIES, BRANDS, STACKS, BENEFITS, brandsIn } from "./data";
+import { BASE, IMG, SHOWN, BRANDS, STACKS, BENEFITS, brandsIn } from "./data";
 import "./pem.css";
 
 export const metadata: Metadata = {
@@ -41,7 +41,7 @@ export default function Page() {
             <h2>Assemble the <em>whole kitchen.</em></h2>
           </header>
           <ul className="pem-catgrid">
-            {CATEGORIES.map((c, i) => {
+            {SHOWN.map((c, i) => {
               const b = brandsIn(c.slug);
               return (
                 <li key={c.slug} className={c.photo ? "has-pic" : ""}>

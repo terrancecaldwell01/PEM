@@ -184,6 +184,11 @@ export const brand = (slug: string) => BRANDS.find((b) => b.slug === slug);
 export const category = (slug: string) => CATEGORIES.find((c) => c.slug === slug);
 export const brandsIn = (cat: string) => BRANDS.filter((b) => b.category === cat);
 
+/* Categories shown in the grid, category bar, footer and sitemap: only ones with a listed brand
+   (plus Scratch and dent). An empty category appears on its own once a listed brand is added to it. */
+export const SHOWN = CATEGORIES.filter((c) =>
+  c.slug === "scratch-dent" || BRANDS.some((b) => b.category === c.slug && b.status === "listed" && b.products.length > 0));
+
 export const BENEFITS = [
   { h: "Reach active buyers", p: "Pizza operators, owners and equipment buyers shopping by category." },
   { h: "Drive traffic to your site", p: "Your logo sits on the homepage and links straight to your featured page and your own website." },
